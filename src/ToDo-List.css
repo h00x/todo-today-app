@@ -1,6 +1,7 @@
 .ListItems {
     padding: 0;
-    margin: 1rem -1rem;
+    margin: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -58,4 +59,9 @@ li .CheckIcon:hover path {
 
 .DeleteItem path {
     fill: #E1E4E7;
+    transition: fill .2s ease-in-out;
+}
+
+.DeleteItem:hover path {
+    fill: #737475;
 }

@@ -11,6 +11,7 @@ class App extends Component {
         <div className="App">
           <AddToDo />
           <TodoList />
+          <p className="QuoteText">Do more things with your life</p>
         </div>
       </div>
     );
