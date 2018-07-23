@@ -16,3 +16,16 @@
 .AddToDoForm input::placeholder {
     color: #CBCDD0;
 }
+
+.AddToDoForm button {
+    border: 0;
+    color: #FFFFFF;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2rem;
+    border-radius: 0 4px 4px 0;
+    background-image: linear-gradient(-135deg, #00E7C4 0%, #02CFB0 100%);
+    position: absolute;
+    margin-left: -2.5rem;
+    cursor: pointer;
+}

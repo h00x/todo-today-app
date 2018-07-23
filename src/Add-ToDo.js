@@ -13,6 +13,7 @@ class AddToDo extends Component {
       return (
         <form className="AddToDoForm">
             <input type="text" placeholder={this.state.placeholderText}/>
+            <button type="button" value="Add">+</button>
         </form>
       );
     }
