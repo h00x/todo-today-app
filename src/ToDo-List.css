@@ -1,0 +1,61 @@
+.ListItems {
+    padding: 0;
+    margin: 1rem -1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ListItems li:first-child {
+    border-top: 1px solid #E1E4E7;
+}
+
+.ListItems li {
+    border-bottom: 1px solid #E1E4E7;
+    list-style-type: none;
+    height: 3rem;
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    transition: background-color .15s ease-in-out;
+}
+
+.ListItems li p {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.CheckIcon path {
+   fill: #00F5E4; 
+   transition: fill .2s ease-in-out;
+}
+
+li .CheckIcon:hover path {
+    fill: #02CFB0; 
+}
+
+.CheckIcon:hover,
+.DeleteItem:hover {
+    cursor: pointer;
+}
+
+.ListItems li:hover {
+    background-color: #FBFBFB;
+}
+
+.DeleteItem {
+    margin-left: auto;
+    font-size: 0.7rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.ListItems li:hover .DeleteItem {
+    visibility: visible;
+    opacity: 1;
+}
+
+.DeleteItem path {
+    fill: #E1E4E7;
+}
