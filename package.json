@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://github.com/h00x/todo-today-app"
+  "homepage": "https://todo-today-app.netlify.com"
 }
