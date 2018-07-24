@@ -45,11 +45,14 @@ li .CheckIcon:hover path {
 }
 
 .DeleteItem {
-    margin-left: auto;
     font-size: 0.7rem;
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s ease-in-out;
+}
+
+.DeleteLink {
+    margin-left: auto;
 }
 
 .ListItems li:hover .DeleteItem {

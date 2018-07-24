@@ -21,6 +21,7 @@ class AddToDo extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({listToDo: [this.state.value, ...this.state.listToDo]});
+        this.setState({value: ""});
     }
 
     render() {
