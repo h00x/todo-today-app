@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import AddToDo from './Add-ToDo';
-import TodoList from './ToDo-List';
 
 class App extends Component {
   render() {
@@ -10,7 +9,6 @@ class App extends Component {
         <img src="images/todo-today-logo.png" className="Logo" width="145" height="95" alt="Logo ToDo Today" />
         <div className="App">
           <AddToDo />
-          <TodoList />
           <p className="QuoteText">Do more things with your life</p>
         </div>
       </div>

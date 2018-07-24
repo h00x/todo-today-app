@@ -3,6 +3,10 @@
     padding: 1rem;
 }
 
+.App div {
+    width: 100%;
+}
+
 .AddToDoForm input {
     width: 100%;
     height: 2.5rem;
