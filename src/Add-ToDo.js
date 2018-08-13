@@ -12,6 +12,7 @@ class AddToDo extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.changeTodoList = this.changeTodoList.bind(this);
     }
 
     handleChange(event) {
@@ -24,6 +25,17 @@ class AddToDo extends Component {
         this.setState({value: ""});
     }
 
+    changeTodoList(index) {
+        // console.log(index);
+        let changeArr = this.state.listToDo;
+        changeArr.splice(index, 1)
+        this.setState({listToDo: changeArr});
+    }
+
+    doneTodoList(index) {
+        console.log(index);
+    }
+
     render() {
         
         return (
@@ -32,7 +44,7 @@ class AddToDo extends Component {
                     <input type="text" placeholder={this.state.placeholderText} value={this.state.value} onChange={this.handleChange} />
                     <button type="submit" value="Add">+</button>
                 </form>
-                <TodoList listToDo={this.state.listToDo} />
+                <TodoList listToDo={this.state.listToDo} handleDeleteClick={this.changeTodoList} handleDoneClick={this.doneTodoList} />
             </div>
         );
     }
