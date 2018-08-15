@@ -6,16 +6,35 @@ import './ToDo-List.css';
 
 
 class ToDoList extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        let list = this.props.listToDo.map((item, index) => <li key={index}><a className="DoneLink" onClick={() => this.props.handleDoneClick(index)}><FontAwesomeIcon icon={faCheckCircle} className="CheckIcon" /></a><p>{item}</p><a className="DeleteLink" onClick={() => this.props.handleDeleteClick(index)}><FontAwesomeIcon icon={faTimes} className="DeleteItem" /></a></li>);
+        let createList = (arr, done) => {
+            let createdArr = arr.map((item, index) => {
+                if (!done) {
+                    // this creates the todo list
+                    return  <li className="ToDoItems" key={index}>
+                                <a className="DoneLink" onClick={() => this.props.handleDoneClick(index)}><FontAwesomeIcon icon={faCheckCircle} className="CheckIcon" /></a>
+                                <p>{item}</p>
+                                <a className="DeleteLink" onClick={() => this.props.handleDeleteClick(index)}><FontAwesomeIcon icon={faTimes} className="DeleteIcon" /></a>
+                            </li>
+                } else {
+                    // This creates the list that is done
+                    return  <li className="DoneItems" key={index}>
+                                <a className="DoneLink"><FontAwesomeIcon icon={faCheckCircle} className="CheckIcon" /></a>
+                                <p className="DoneItem">{item}</p>
+                                <a className="DeleteLink" onClick={() => this.props.handleDeleteClickDone(index)}><FontAwesomeIcon icon={faTimes} className="DeleteIcon" /></a>
+                            </li>
+                }
+            });
+            return createdArr;
+        };
+        
         return (
-            <ul className="ListItems">
-                {list}
-            </ul>
+            <div>
+                <ul className="ListItems">
+                    {createList(this.props.listToDo, false)}
+                    {createList(this.props.listDone, true)}
+                </ul>
+            </div>
         );
     }
 }

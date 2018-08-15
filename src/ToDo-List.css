@@ -6,10 +6,6 @@
     flex-direction: column;
 }
 
-.ListItems li:first-child {
-    border-top: 1px solid #E1E4E7;
-}
-
 .ListItems li {
     border-bottom: 1px solid #E1E4E7;
     list-style-type: none;
@@ -26,6 +22,11 @@
     margin-left: 1rem;
 }
 
+.ListItems li .DoneItem {
+    text-decoration: line-through;
+    color: #E1E4E7;
+}
+
 .CheckIcon path {
    fill: #00F5E4; 
    transition: fill .2s ease-in-out;
@@ -36,15 +37,24 @@ li .CheckIcon:hover path {
 }
 
 .CheckIcon:hover,
-.DeleteItem:hover {
+.DeleteIcon:hover {
     cursor: pointer;
+}
+
+.DoneItems .CheckIcon path,
+.DoneItems .CheckIcon:hover path {
+    fill: #E1E4E7;
+}
+
+.DoneItems .CheckIcon {
+    cursor: default;
 }
 
 .ListItems li:hover {
     background-color: #FBFBFB;
 }
 
-.DeleteItem {
+.DeleteIcon {
     font-size: 0.7rem;
     visibility: hidden;
     opacity: 0;
@@ -55,16 +65,16 @@ li .CheckIcon:hover path {
     margin-left: auto;
 }
 
-.ListItems li:hover .DeleteItem {
+.ListItems li:hover .DeleteIcon {
     visibility: visible;
     opacity: 1;
 }
 
-.DeleteItem path {
+.DeleteIcon path {
     fill: #E1E4E7;
     transition: fill .2s ease-in-out;
 }
 
-.DeleteItem:hover path {
+.DeleteIcon:hover path {
     fill: #737475;
 }
