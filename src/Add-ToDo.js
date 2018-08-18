@@ -18,6 +18,7 @@ class AddToDo extends Component {
         this.deleteListItemDone = this.deleteListItemDone.bind(this);
         this.hydrateStateWithLocalStorage = this.hydrateStateWithLocalStorage.bind(this);
         this.backTodo = this.backTodo.bind(this);
+        this.handleToDoChange = this.handleToDoChange.bind(this);
     }
 
     componentDidMount() {
@@ -26,6 +27,14 @@ class AddToDo extends Component {
 
     // Updates state with localy stored values
     hydrateStateWithLocalStorage() {
+        if (!localStorage.getItem("storedTodo")) {
+            localStorage.setItem("storedTodo", JSON.stringify([]));
+        }
+
+        if (!localStorage.getItem("storedDone")) {
+            localStorage.setItem("storedDone", JSON.stringify([]));
+        }
+
         let toDoValue = JSON.parse(localStorage.getItem("storedTodo"));
         let doneValue = JSON.parse(localStorage.getItem("storedDone"));
         this.setState({listToDo: toDoValue});
@@ -91,11 +100,21 @@ class AddToDo extends Component {
         localStorage.setItem("storedTodo", JSON.stringify([...this.state.listToDo, backItem]));
     }
 
+    handleToDoChange(event, index) {
+        if (event.target.value.length < 30) {
+            let changedValue = event.target.value;
+            let changeArr = this.state.listToDo;
+            changeArr.splice(index, 1, changedValue); // changes the item at the given index to the latest known value we get through event
+            this.setState({listToDo: changeArr});
+            localStorage.setItem("storedTodo", JSON.stringify(changeArr));
+        }
+    }
+
     render() {
         return (
             <div>
                 <form className="AddToDoForm" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder={this.state.placeholderText} value={this.state.value} onChange={this.handleChange} />
+                    <input type="text" placeholder={this.state.placeholderText} value={this.state.value} onChange={this.handleChange} autoFocus />
                     <button type="submit" value="Add" className={this.state.value ? "" : "InactiveButton"}>+</button>
                     <p className="LimitCount">{this.state.value.length}/30</p>
                 </form>
@@ -105,6 +124,7 @@ class AddToDo extends Component {
                           handleDeleteClickDone={this.deleteListItemDone} 
                           handleDoneClick={this.doneTodoList}
                           handleBackTodo={this.backTodo}
+                          editTodo={this.handleToDoChange}
                 />
             </div>
         );

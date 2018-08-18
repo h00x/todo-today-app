@@ -10,11 +10,11 @@ class ToDoList extends Component {
     render() {
         let createList = (arr, done) => {
             let createdArr = arr.map((item, index) => {
-                if (!done) {
+                if (!done) { 
                     // this creates the todo list
                     return  <li className="ToDoItems" key={index}>
                                 <a className="DoneLink" onClick={() => this.props.handleDoneClick(index)}><FontAwesomeIcon icon={faCheckCircle} className="CheckIcon" /></a>
-                                <p>{item}</p>
+                                <input className="TodoInput" type="text" value={arr[index]} onChange={(e) => this.props.editTodo(e, index)} />
                                 <a className="DeleteLink" onClick={() => this.props.handleDeleteClick(index)}><FontAwesomeIcon icon={faTimes} className="DeleteIcon" /></a>
                             </li>
                 } else {
