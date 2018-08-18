@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons';
 import './ToDo-List.css';
 
 
@@ -19,7 +20,7 @@ class ToDoList extends Component {
                 } else {
                     // This creates the list that is done
                     return  <li className="DoneItems" key={index}>
-                                <a className="DoneLink"><FontAwesomeIcon icon={faCheckCircle} className="CheckIcon" /></a>
+                                <a className="DoneLink" onClick={() => this.props.handleBackTodo(index)}><FontAwesomeIcon icon={faArrowAltCircleUp} className="BackIcon" /></a>
                                 <p className="DoneItem">{item}</p>
                                 <a className="DeleteLink" onClick={() => this.props.handleDeleteClickDone(index)}><FontAwesomeIcon icon={faTimes} className="DeleteIcon" /></a>
                             </li>

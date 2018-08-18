@@ -37,17 +37,14 @@ li .CheckIcon:hover path {
 }
 
 .CheckIcon:hover,
-.DeleteIcon:hover {
+.DeleteIcon:hover,
+.BackIcon:hover {
     cursor: pointer;
 }
 
-.DoneItems .CheckIcon path,
-.DoneItems .CheckIcon:hover path {
+.DoneItems .BackIcon path,
+.DoneItems .BackIcon:hover path {
     fill: #E1E4E7;
-}
-
-.DoneItems .CheckIcon {
-    cursor: default;
 }
 
 .ListItems li:hover {

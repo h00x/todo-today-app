@@ -4,9 +4,11 @@ import AddToDo from './Add-ToDo';
 
 /*
 * TODO:
-* - Add ability to save in the browser (check saved medium article)
 * - Be able to edit the existing items in the todo list
 * - Add Animations when checking things as done
+* - Add responsive CSS for mobile
+* - Cross check on OS's
+* - Move items from deleted state to todo
 *
 * NICE TO HAVES
 * - Add sounds
