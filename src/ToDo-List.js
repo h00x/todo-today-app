@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CSSTransitionGroup } from 'react-transition-group'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
@@ -14,7 +13,7 @@ class ToDoList extends Component {
             return <ToDoItem 
                         key={index} 
                         done={false}
-                        TodoItem={this.props.listToDo[index]} 
+                        TodoItem={item} 
                         DoneClick={() => this.props.handleDoneClick(index)} 
                         DeleteClick={() => this.props.handleDeleteClick(index)} 
                         EditTodo={(e) => this.props.editTodo(e, index)} />
@@ -33,10 +32,8 @@ class ToDoList extends Component {
         return (
             <div>
                 <ul className="ListItems">
-                    <CSSTransitionGroup transitionName="ToDoListAni" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
                         {todoItems}
                         {doneList}
-                    </CSSTransitionGroup>
                 </ul>
             </div>
         );
@@ -46,7 +43,7 @@ class ToDoList extends Component {
 class ToDoItem extends Component {
     render() {
         return (
-            <li className={!this.props.done ? "ToDoItems" : "DoneItems"} key={this.props.key}>
+            <li className={!this.props.done ? "ToDoItems" : "DoneItems"}>
                 <a className="DoneLink" onClick={this.props.DoneClick}><FontAwesomeIcon icon={!this.props.done ? faCheckCircle : faArrowAltCircleUp} className={!this.props.done ? "CheckIcon" : "BackIcon"} /></a>
                 {!this.props.done ? <input className="TodoInput" type="text" value={this.props.TodoItem} onChange={this.props.EditTodo} /> : <p className="DoneItem">{this.props.DoneItem}</p>}
                 <a className="DeleteLink" onClick={this.props.DeleteClick}><FontAwesomeIcon icon={faTimes} className="DeleteIcon" /></a>

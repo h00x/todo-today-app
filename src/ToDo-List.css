@@ -28,6 +28,9 @@
     height: 100%;
     border: 0;
     background-color: rgba(255,255,255,0);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .TodoInput:focus {
@@ -37,6 +40,9 @@
 .ListItems li .DoneItem {
     text-decoration: line-through;
     color: #E1E4E7;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .CheckIcon path {
@@ -86,26 +92,4 @@ li .CheckIcon:hover path {
 
 .DeleteIcon:hover path {
     fill: #737475;
-}
-
-.ToDoListAni-enter {
-    opacity: 0.01;
-    height: 0rem;
-}
-
-.ToDoListAni-enter.ToDoListAni-enter-active {
-    opacity: 1;
-    height: 3rem;
-    transition: 700ms;
-}
-
-.ToDoListAni-leave {
-    opacity: 1;
-    height: 3rem;
-}
-
-.ToDoListAni-leave.ToDoListAni-leave-active {
-    opacity: 0.01;
-    height: 0rem;
-    transition: 700ms;
 }
